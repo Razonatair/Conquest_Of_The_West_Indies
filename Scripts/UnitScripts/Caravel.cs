@@ -1,16 +1,13 @@
 using Godot;
-using Godot.NativeInterop;
 using System;
 
-public partial class ConquerEngine : Node2D
+public partial class Caravel : Unit
 {
-	//Reference to the game's camera.
-	private Camera2D m_camera;
-
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		m_camera = (Camera2D)GetNode("Camera");
+		m_movementPoints = 4;
+		m_movementPointsRemaining = 4;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,9 +15,4 @@ public partial class ConquerEngine : Node2D
 	{
 
 	}
-
-    public override void _Input(InputEvent @event)
-    {
-        
-    }
 }

@@ -1,16 +1,17 @@
 using Godot;
-using Godot.NativeInterop;
 using System;
+using System.Numerics;
 
-public partial class ConquerEngine : Node2D
+public partial class Unit : Sprite2D
 {
-	//Reference to the game's camera.
-	private Camera2D m_camera;
+	// Statistics that all units have.
+	protected int m_movementPoints = 0;
+	protected int m_movementPointsRemaining = 0;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		m_camera = (Camera2D)GetNode("Camera");
+		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,8 +20,5 @@ public partial class ConquerEngine : Node2D
 
 	}
 
-    public override void _Input(InputEvent @event)
-    {
-        
-    }
+	
 }
