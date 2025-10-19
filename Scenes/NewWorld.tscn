@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dj8t7n1q0n30e"]
+[gd_scene load_steps=12 format=4 uid="uid://dj8t7n1q0n30e"]
 
 [ext_resource type="Script" uid="uid://ddqrexns0k43r" path="res://Scripts/ConquerEngine.cs" id="1_4rvc0"]
 [ext_resource type="Texture2D" uid="uid://5slmc4yru6ie" path="res://Assets/Sprites/TerrainSprites/TerrainTileSet.png" id="2_51u67"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://biqrcfv2cfeuk" path="res://Scripts/UnitScripts/UnitManager.cs" id="4_qptyk"]
 [ext_resource type="Script" uid="uid://pnpcwsgdloje" path="res://Scripts/MapScripts/Map.cs" id="4_s1hk5"]
 [ext_resource type="Script" uid="uid://msww7emwcpvm" path="res://Scripts/UnitScripts/Caravel.cs" id="5_b4lvg"]
+[ext_resource type="Texture2D" uid="uid://br6vx81oyu4df" path="res://Assets/Sprites/UnitSprites/UnskilledColonist.png" id="8_khxg4"]
+[ext_resource type="Script" uid="uid://bpcjcdbs7jsa4" path="res://Scripts/UnitScripts/Colonist.cs" id="9_skyr1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e0np7"]
 texture = ExtResource("2_51u67")
@@ -59,3 +61,9 @@ script = ExtResource("4_qptyk")
 position = Vector2(324, 261)
 texture = ExtResource("3_51u67")
 script = ExtResource("5_b4lvg")
+
+[node name="Colonist" type="Sprite2D" parent="RawMap/UnitManager"]
+visible = false
+position = Vector2(324, 272)
+texture = ExtResource("8_khxg4")
+script = ExtResource("9_skyr1")
