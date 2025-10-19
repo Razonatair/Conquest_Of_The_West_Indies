@@ -3,24 +3,28 @@
   "WorkspaceRootPath": "C:\\Users\\Dyllin\\Documents\\Conquest_Of_The_West_Indies\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CE501E73-89F1-41D9-83D2-225ABCD58011}|Conquest Of The West Indies.csproj|c:\\users\\dyllin\\documents\\conquest_of_the_west_indies\\scripts\\unitscripts\\unit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE501E73-89F1-41D9-83D2-225ABCD58011}|Conquest Of The West Indies.csproj|solutionrelative:scripts\\unitscripts\\unit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CE501E73-89F1-41D9-83D2-225ABCD58011}|Conquest Of The West Indies.csproj|c:\\users\\dyllin\\documents\\conquest_of_the_west_indies\\scripts\\unitscripts\\caravel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE501E73-89F1-41D9-83D2-225ABCD58011}|Conquest Of The West Indies.csproj|solutionrelative:scripts\\unitscripts\\caravel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dyllin\\Documents\\Conquest_Of_The_West_Indies\\Scripts\\MapScripts\\Map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Scripts\\MapScripts\\Map.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CE501E73-89F1-41D9-83D2-225ABCD58011}|Conquest Of The West Indies.csproj|c:\\users\\dyllin\\documents\\conquest_of_the_west_indies\\scripts\\conquerengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CE501E73-89F1-41D9-83D2-225ABCD58011}|Conquest Of The West Indies.csproj|solutionrelative:scripts\\conquerengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dyllin\\Documents\\Conquest_Of_The_West_Indies\\Scripts\\UnitScripts\\Unit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Scripts\\UnitScripts\\Unit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CE501E73-89F1-41D9-83D2-225ABCD58011}|Conquest Of The West Indies.csproj|c:\\users\\dyllin\\documents\\conquest_of_the_west_indies\\scripts\\unitscripts\\unitmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CE501E73-89F1-41D9-83D2-225ABCD58011}|Conquest Of The West Indies.csproj|solutionrelative:scripts\\unitscripts\\unitmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CE501E73-89F1-41D9-83D2-225ABCD58011}|Conquest Of The West Indies.csproj|c:\\users\\dyllin\\documents\\conquest_of_the_west_indies\\scripts\\camerascripts\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CE501E73-89F1-41D9-83D2-225ABCD58011}|Conquest Of The West Indies.csproj|solutionrelative:scripts\\camerascripts\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dyllin\\Documents\\Conquest_Of_The_West_Indies\\Scripts\\UnitScripts\\Caravel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Scripts\\UnitScripts\\Caravel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Dyllin\\Documents\\Conquest_Of_The_West_Indies\\Scripts\\UnitScripts\\UnitManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Scripts\\UnitScripts\\UnitManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,8 +34,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Map.cs",
+              "DocumentMoniker": "C:\\Users\\Dyllin\\Documents\\Conquest_Of_The_West_Indies\\Scripts\\MapScripts\\Map.cs",
+              "RelativeDocumentMoniker": "Scripts\\MapScripts\\Map.cs",
+              "ToolTip": "C:\\Users\\Dyllin\\Documents\\Conquest_Of_The_West_Indies\\Scripts\\MapScripts\\Map.cs",
+              "RelativeToolTip": "Scripts\\MapScripts\\Map.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACIAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-19T06:01:53.981Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 4,
@@ -40,59 +57,59 @@
               "RelativeDocumentMoniker": "Scripts\\UnitScripts\\UnitManager.cs",
               "ToolTip": "C:\\Users\\Dyllin\\Documents\\Conquest_Of_The_West_Indies\\Scripts\\UnitScripts\\UnitManager.cs",
               "RelativeToolTip": "Scripts\\UnitScripts\\UnitManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-19T01:50:28.335Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Camera.cs",
               "DocumentMoniker": "C:\\Users\\Dyllin\\Documents\\Conquest_Of_The_West_Indies\\Scripts\\CameraScripts\\Camera.cs",
               "RelativeDocumentMoniker": "Scripts\\CameraScripts\\Camera.cs",
               "ToolTip": "C:\\Users\\Dyllin\\Documents\\Conquest_Of_The_West_Indies\\Scripts\\CameraScripts\\Camera.cs",
               "RelativeToolTip": "Scripts\\CameraScripts\\Camera.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAQwD4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEQAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-19T01:32:52.471Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "ConquerEngine.cs",
               "DocumentMoniker": "C:\\Users\\Dyllin\\Documents\\Conquest_Of_The_West_Indies\\Scripts\\ConquerEngine.cs",
               "RelativeDocumentMoniker": "Scripts\\ConquerEngine.cs",
               "ToolTip": "C:\\Users\\Dyllin\\Documents\\Conquest_Of_The_West_Indies\\Scripts\\ConquerEngine.cs",
               "RelativeToolTip": "Scripts\\ConquerEngine.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAA3wBcAAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAgwGEAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-19T01:32:31.441Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Unit.cs",
               "DocumentMoniker": "C:\\Users\\Dyllin\\Documents\\Conquest_Of_The_West_Indies\\Scripts\\UnitScripts\\Unit.cs",
               "RelativeDocumentMoniker": "Scripts\\UnitScripts\\Unit.cs",
               "ToolTip": "C:\\Users\\Dyllin\\Documents\\Conquest_Of_The_West_Indies\\Scripts\\UnitScripts\\Unit.cs",
               "RelativeToolTip": "Scripts\\UnitScripts\\Unit.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAACkAAAAAAAAAAAAgwEAAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-19T00:08:04.781Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Caravel.cs",
               "DocumentMoniker": "C:\\Users\\Dyllin\\Documents\\Conquest_Of_The_West_Indies\\Scripts\\UnitScripts\\Caravel.cs",
               "RelativeDocumentMoniker": "Scripts\\UnitScripts\\Caravel.cs",
               "ToolTip": "C:\\Users\\Dyllin\\Documents\\Conquest_Of_The_West_Indies\\Scripts\\UnitScripts\\Caravel.cs",
               "RelativeToolTip": "Scripts\\UnitScripts\\Caravel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-19T01:46:08.435Z",
               "EditorCaption": ""
