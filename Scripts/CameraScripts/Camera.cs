@@ -22,10 +22,10 @@ public partial class Camera : Camera2D
     private float m_vel_multiplier = 10f;
 
     // Keyboard state
-    private bool m_w_Key = false;
-    private bool m_s_Key = false;
-    private bool m_a_Key = false;
-    private bool m_d_Key = false;
+    private bool m_Up_Key = false;
+    private bool m_Down_Key = false;
+    private bool m_Left_Key = false;
+    private bool m_Right_Key = false;
 
     public override void _Input(InputEvent _event)
     {
@@ -68,28 +68,27 @@ public partial class Camera : Camera2D
         {
             switch (keyEvent.Keycode)
             {
-                case Key.W:
+                case Key.Up:
                     {
-                        m_w_Key = keyEvent.Pressed;
+                        m_Up_Key = keyEvent.Pressed;
                     }
                     break;
 
-                case Key.A:
+                case Key.Down:
                     {
-                        m_a_Key = keyEvent.Pressed;
+                        m_Down_Key = keyEvent.Pressed;
                     }
                     break;
 
-                case Key.S:
+                case Key.Left:
                     {
-                        m_s_Key = keyEvent.Pressed;
+                        m_Left_Key = keyEvent.Pressed;
                     }
                     break;
-
                 
-                case Key.D:
+                case Key.Right:
                     {
-                        m_d_Key = keyEvent.Pressed;
+                        m_Right_Key = keyEvent.Pressed;
                     }
                     break;
             }
@@ -109,10 +108,10 @@ public partial class Camera : Camera2D
         // Computes desired direction from key states
         m_direction = Vector2.Zero;
         float zoom = base.Zoom.X;
-        if (m_d_Key) m_direction.X += 500.0f / zoom;
-        if (m_a_Key) m_direction.X -= 500.0f / zoom;
-        if (m_s_Key) m_direction.Y += 500.0f / zoom;
-        if (m_w_Key) m_direction.Y -= 500.0f / zoom;
+        if (m_Up_Key) m_direction.Y -= 500.0f / zoom;
+        if (m_Down_Key) m_direction.Y += 500.0f / zoom;
+        if (m_Left_Key) m_direction.X -= 500.0f / zoom;
+        if (m_Right_Key) m_direction.X += 500.0f / zoom;
 
         Translate(m_direction * delta);
     }

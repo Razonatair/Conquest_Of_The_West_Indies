@@ -8,6 +8,8 @@ public partial class Unit : Sprite2D
 	protected int m_movementPoints = 0;
 	protected int m_movementPointsRemaining = 0;
 
+	protected Vector2I m_mapPosition;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -20,5 +22,8 @@ public partial class Unit : Sprite2D
 
 	}
 
-	
+	public void setMapPosition(Vector2I mapPosition)
+	{
+		m_mapPosition = mapPosition;
+	}
 }
