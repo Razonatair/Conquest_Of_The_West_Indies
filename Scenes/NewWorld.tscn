@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://dj8t7n1q0n30e"]
+[gd_scene load_steps=9 format=4 uid="uid://dj8t7n1q0n30e"]
 
 [ext_resource type="Script" uid="uid://ddqrexns0k43r" path="res://Scripts/ConquerEngine.cs" id="1_4rvc0"]
 [ext_resource type="Texture2D" uid="uid://5slmc4yru6ie" path="res://Assets/Sprites/TerrainSprites/TerrainTileSet.png" id="2_51u67"]
 [ext_resource type="Script" uid="uid://c2hlony66ftqn" path="res://Scripts/CameraScripts/Camera.cs" id="2_e0np7"]
 [ext_resource type="Texture2D" uid="uid://64nb0scjhq4h" path="res://Assets/Sprites/UnitSprites/Caravel.png" id="3_51u67"]
+[ext_resource type="Script" uid="uid://biqrcfv2cfeuk" path="res://Scripts/UnitScripts/UnitManager.cs" id="4_qptyk"]
 [ext_resource type="Script" uid="uid://msww7emwcpvm" path="res://Scripts/UnitScripts/Caravel.cs" id="5_b4lvg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e0np7"]
@@ -50,6 +51,7 @@ tile_map_data = PackedByteArray("AAAAAP3/AAAAAAIAAAAAAP7/AAAAAAEAAAD///7/AAAAAAI
 tile_set = SubResource("TileSet_b4lvg")
 
 [node name="UnitManager" type="Node2D" parent="RawMap"]
+script = ExtResource("4_qptyk")
 
 [node name="Caravel" type="Sprite2D" parent="RawMap/UnitManager"]
 position = Vector2(324, 261)
