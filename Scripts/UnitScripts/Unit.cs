@@ -39,17 +39,17 @@ public partial class Unit : Sprite2D
 		switch (order.m_Type)
 		{
 			case "MOVE":
-				if(order.m_Map_Coordinates.X != -1)
-				{
-                    if (IsValidMove(order.m_Map_Coordinates))
-                    {
-                        setMapPosition(order.m_Map_Coordinates);
-                        m_movementPointsRemaining--;
-                        return true;
-                    }
-                }
-				//SendUnitsAshore(order.m_Direction);
 
+				if (IsValidMove(order.m_Map_Coordinates))
+				{
+					setMapPosition(order.m_Map_Coordinates);
+					m_movementPointsRemaining--;
+					return true;
+				}else if(m_Manifest[0].IsValidMove(order.m_Map_Coordinates))
+				{
+                    SendUnitsAshore(order.m_Map_Coordinates);
+                }
+				
 				return false;
 
 			case "LOAD":
@@ -100,14 +100,24 @@ public partial class Unit : Sprite2D
 		{
 			for(int i = 0; i < m_Manifest.Count;i++)
 			{
-				if (m_Manifest[i].m_movementPointsRemaining >= 1 &&
-					IsValidMove(targetMapCoordinate))
+				if (m_Manifest[i].m_movementPointsRemaining >= 1 && IsValidMove(targetMapCoordinate))
 				{
 					setMapPosition(targetMapCoordinate);
 				}
 			}
 		}
 	}
+
+    protected void SendUnitsAshore(Vector2I targetMapPosition)
+    {
+		GD.Print("SendUnitsAshore called.");
+		for(int i = 0; i < m_Manifest.Count; i++)
+		{
+			m_Manifest[i].setMapPosition(targetMapPosition);
+			m_Manifest[i].Unload();
+		}
+		GD.Print("Exiting SendUnitsAshore");
+    }
 
     protected Vector2I DirectionToNeighborCoordinate(int direction)
 	{
@@ -138,6 +148,7 @@ public partial class Unit : Sprite2D
 
     protected bool IsValidMove(Vector2I targetMapPosition) 
 	{
+		GD.Print("IsValidMove called by " + m_UnitType);
 		if(	targetMapPosition == m_CurrentMapPosition ||
 			m_movementPointsRemaining == 0 ||
 			IsTileNeighbor(targetMapPosition) == false ||
