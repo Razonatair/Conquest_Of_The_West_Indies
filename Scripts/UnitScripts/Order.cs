@@ -6,6 +6,7 @@ public class Order
 	public string m_Type;
 	public Vector2I m_Map_Coordinates;
 	public Unit m_TargetUnit;
+	public int m_Direction;
 
 	public Order(string type, Vector2I coordinates)
 	{
@@ -17,5 +18,11 @@ public class Order
 	{
 		m_Type = type;
 		m_TargetUnit = targetUnit;
+	}
+
+	public Order(string type, int  direction)
+	{
+		m_Type = type;
+		m_Direction = direction;
 	}
 }

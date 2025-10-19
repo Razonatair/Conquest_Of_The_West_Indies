@@ -20,7 +20,7 @@ public partial class Unit : Sprite2D
 	// Statistics that a transport might have.
 	protected int m_CargoSlots = 0;
 	protected int m_CargoSlotsRemaining = 0;
-	protected List<Unit> m_Manifest;
+	protected List<Unit> m_Manifest = new List<Unit>();
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -39,12 +39,17 @@ public partial class Unit : Sprite2D
 		switch (order.m_Type)
 		{
 			case "MOVE":
-				if(IsValidMove(order.m_Map_Coordinates))
+				if(order.m_Map_Coordinates.X != -1)
 				{
-                    setMapPosition(order.m_Map_Coordinates);
-					m_movementPointsRemaining--;
-					return true;
+                    if (IsValidMove(order.m_Map_Coordinates))
+                    {
+                        setMapPosition(order.m_Map_Coordinates);
+                        m_movementPointsRemaining--;
+                        return true;
+                    }
                 }
+				//SendUnitsAshore(order.m_Direction);
+
 				return false;
 
 			case "LOAD":
@@ -54,7 +59,7 @@ public partial class Unit : Sprite2D
                 Unload();
 				return true;
 
-            case "UNLOAD_AND_MOVE":
+            case "UNLOAD_AND_SEND_ASHORE":
                 if (IsValidMove(order.m_Map_Coordinates))
                 {
                     setMapPosition(order.m_Map_Coordinates);
@@ -69,7 +74,7 @@ public partial class Unit : Sprite2D
 		}
 	}
 
-	private void setMapPosition(Vector2I targetMapPosition)
+    protected void setMapPosition(Vector2I targetMapPosition)
 	{
 		// Translate the map coordinate into a local game coordinate.
 		Vector2 offset = GetParent<UnitManager>().GetParent<TileMapLayer>().MapToLocal(targetMapPosition) - Position;
@@ -86,24 +91,72 @@ public partial class Unit : Sprite2D
         }
 	}
 
-	private bool IsValidMove(Vector2I targetMapPosition) 
+    protected void SendUnitsAshore(int direction)
+	{
+		Vector2I targetMapCoordinate = DirectionToNeighborCoordinate(direction);
+		GD.Print("Current map coord: " + m_CurrentMapPosition);
+		GD.Print("Target map coord: " + targetMapCoordinate);
+		if(m_Manifest.Count >= 1)
+		{
+			for(int i = 0; i < m_Manifest.Count;i++)
+			{
+				if (m_Manifest[i].m_movementPointsRemaining >= 1 &&
+					IsValidMove(targetMapCoordinate))
+				{
+					setMapPosition(targetMapCoordinate);
+				}
+			}
+		}
+	}
+
+    protected Vector2I DirectionToNeighborCoordinate(int direction)
+	{
+		GD.Print("Current map coord in DirectionToNeighborCoordinate is: " + m_CurrentMapPosition);
+        Godot.Collections.Array<Vector2I> neighbors = r_Map.GetSurroundingCells(m_CurrentMapPosition);
+
+		//Checks E, SE, NE, E, NW, SE
+		int[] directions = { 6, 3, 1, 4, 7, 9 };
+		bool dirFound = false;
+		int select = -1;
+		while(dirFound == false)
+		{
+			select++;
+			if (directions[select] == direction)
+				dirFound = true;
+		}
+
+		GD.Print("Cycling neighbors.");
+		for (int i = 0; i < neighbors.Count; i++)
+		{
+			GD.Print(neighbors[i]);
+		}
+		
+
+
+		return neighbors[select];
+    }
+
+    protected bool IsValidMove(Vector2I targetMapPosition) 
 	{
 		if(	targetMapPosition == m_CurrentMapPosition ||
 			m_movementPointsRemaining == 0 ||
 			IsTileNeighbor(targetMapPosition) == false ||
             m_ValidDomain != r_Map.GetTileDomain(targetMapPosition))
 		{
+			GD.Print("Invalid move.");
 			return false;
 		}
+		GD.Print("Valid move.");
 		return true;
 	}
 
 	public void ProcessTurn()
 	{
+		GD.Print(m_UnitType + "'s movement points reset.");
 		m_movementPointsRemaining += m_movementPoints;
 	}
 
-	private bool IsTileNeighbor(Vector2I targetMapPosition)
+    protected bool IsTileNeighbor(Vector2I targetMapPosition)
 	{
 		Godot.Collections.Array<Vector2I> neighbors = r_Map.GetSurroundingCells(targetMapPosition);
 
@@ -118,7 +171,7 @@ public partial class Unit : Sprite2D
 		return false;
 	}
 
-	private bool LoadInto(Unit targetUnit)
+	protected bool LoadInto(Unit targetUnit)
 	{
 		if(targetUnit.m_CargoSlotsRemaining == 0)
 		{
@@ -128,6 +181,8 @@ public partial class Unit : Sprite2D
 		// Load onto the transport and go to its current position such as boarding a ship on the coast.
 		m_UnitTransportingMe = targetUnit;
         m_CurrentMapPosition = targetUnit.m_CurrentMapPosition;
+		GD.Print("Target unit is type " + targetUnit.m_UnitType);
+		GD.Print("I am unit type " + m_UnitType);
         targetUnit.AddToManifest(this);
 
 		// Hide the unit from game view now that it's loaded, unless specifically selected later.
@@ -136,10 +191,11 @@ public partial class Unit : Sprite2D
 		return true;
 	}
 
-	private void Unload()
+    protected void Unload()
 	{
 		m_UnitTransportingMe.RemoveFromManifest(this);
         m_UnitTransportingMe = null;
+		base.Visible = true;
     }
 
 	public bool AddToManifest(Unit unitToLoad)

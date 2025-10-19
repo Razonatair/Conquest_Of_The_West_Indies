@@ -3,7 +3,7 @@ using System;
 
 public partial class UnitManager : Node2D
 {
-	private static Unit m_SelectedUnit = null;
+	public static Unit m_SelectedUnit = null;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -20,6 +20,11 @@ public partial class UnitManager : Node2D
 	public static void OrderSelectedUnit(Order order)
 	{
 		m_SelectedUnit.Order(order);
+	}
+
+	public Unit GetSelectedUnit()
+	{
+		return m_SelectedUnit;
 	}
 
 	public static void ProcessTurn()

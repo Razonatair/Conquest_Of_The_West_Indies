@@ -12,6 +12,10 @@ public partial class Colonist : Unit
         m_movementPointsRemaining = 1;
         m_CurrentMapPosition = new Vector2I(2, 2);
         m_ValidDomain = 0;
+
+		//Testing.
+        Unit caravel = (Unit)GetParent<UnitManager>().GetChild(0);
+        GD.Print(LoadInto(caravel));
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,5 +1,4 @@
 using Godot;
-using Godot.NativeInterop;
 using System;
 
 public partial class ConquerEngine : Node2D
@@ -16,7 +15,15 @@ public partial class ConquerEngine : Node2D
     private bool m_RightMouseButtonPressed = false;
     private Vector2 m_LocalMousePosition;
 
-    private bool m_Key_Enter = false;
+    private int m_AssignKeyPressed = 0;
+    private Key[] m_KeyPressed = { Key.None, Key.None, Key.None };
+    private bool m_Key_Enter = false;   // End turn
+    private bool m_Key_Kp7 = false;     // Move NW
+    private bool m_Key_Kp4 = false;     // Move W
+    private bool m_Key_Kp1 = false;     // Move SW
+    private bool m_Key_Kp9 = false;     // Move NE
+    private bool m_Key_Kp6 = false;     // Move E
+    private bool m_Key_Kp3 = false;     // Move SE
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -54,15 +61,31 @@ public partial class ConquerEngine : Node2D
         InputEventKey keyEvent = _event as InputEventKey;
         if (keyEvent != null && keyEvent.IsReleased())
         {
-            switch (keyEvent.Keycode)
-            {
-                case Key.Enter:
-                    {
-                        m_Key_Enter = true;
-                    }
-                    break;
-            }
+            AssignKeyPressed(keyEvent.Keycode);
         }
+    }
+
+    private void AssignKeyPressed(Key key)
+    {
+        if(m_AssignKeyPressed < m_KeyPressed.Length)
+        {
+            m_KeyPressed[m_AssignKeyPressed] = key;
+            m_AssignKeyPressed++;
+        }
+        else
+        {
+            GD.Print("Excessive keys pressed.");
+        }
+    }
+
+    private void EraseKeyPressed(int index)
+    {
+        m_KeyPressed[index] = Key.None;
+        for (int i = index; i < m_KeyPressed.Length - 1; i++)
+        {
+            m_KeyPressed[i] = m_KeyPressed[i + 1];
+        }
+        m_AssignKeyPressed--;
     }
 
     private void processMouseEvents()
@@ -85,10 +108,65 @@ public partial class ConquerEngine : Node2D
 
     private void processKeyboardEvents()
     {
-        if(m_Key_Enter == true)
+        switch(m_KeyPressed[0])
         {
-            EndTurn();
-            m_Key_Enter = false;
+            case Key.Enter:
+                {
+                    GD.Print("End turn");
+                    EndTurn();
+                    EraseKeyPressed(0);
+                }
+                break;
+            case Key.Kp7: // Order NW move
+                {
+                    GD.Print("Order NW move");
+                    UnitManager.OrderSelectedUnit(new Order("MOVE", 7));
+                    EraseKeyPressed(0);
+                }
+                break;
+
+            case Key.Kp4: // Order W move
+                {
+                    GD.Print("Order W move");
+                    UnitManager.OrderSelectedUnit(new Order("MOVE", 4));
+                    EraseKeyPressed(0);
+                }
+                break;
+
+            case Key.Kp1: // SW move
+                {
+                    GD.Print("Order SW move");
+                    UnitManager.OrderSelectedUnit(new Order("MOVE", 1));
+                    EraseKeyPressed(0);
+                }
+                break;
+
+            case Key.Kp9: // Order NE move
+                {
+                    GD.Print("Order NE move");
+                    UnitManager.OrderSelectedUnit(new Order("MOVE", 9));
+                    EraseKeyPressed(0);
+                }
+                break;
+
+            case Key.Kp6: // Order E move
+                {
+                    GD.Print("Order E move");
+                    UnitManager.OrderSelectedUnit(new Order("MOVE", 6));
+                    EraseKeyPressed(0);
+                }
+                break;
+
+            case Key.Kp3: // Order SE move
+                {
+                    GD.Print("Order SE move");
+                    UnitManager.OrderSelectedUnit(new Order("MOVE", 3));
+                    EraseKeyPressed(0);
+                }
+                break;
+            default:
+                // Do nothing.
+                break;
         }
     }
 
