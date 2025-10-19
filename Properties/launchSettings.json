@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Debug Conquer": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Program Files (x86)\\Godot\\Godot_v4.5.1-stable_mono_win64.exe",
+      "workingDirectory": ".",
+      "nativeDebugging": true
+    }
+  }
+}
